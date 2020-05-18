@@ -23,13 +23,17 @@ export default {
         {
           title: "Self-Reliance",
           author: "Ralph Waldo Emerson",
-          finishedReading = true
+          finishedReading: true
         },
-        { title: "American Gods", author: "Neil Gaiman", finishedReading =false},
+        {
+          title: "American Gods",
+          author: "Neil Gaiman",
+          finishedReading: false
+        },
         {
           title: "Amusing Ourselves to Death",
           author: "Neil Postman",
-          finishedReading =true
+          finishedReading: true
         }
       ]
     };
@@ -40,7 +44,11 @@ export default {
   },
   methods: {
     appendBook(bookData) {
-      this.books.push({ title: bookTitle, author: bookAuthor, finishedReading: bookAuthor.finishedReading });
+      this.books.push({
+        title: bookTitle,
+        author: bookAuthor,
+        finishedReading: bookAuthor.finishedReading
+      });
     }
   }
 };
