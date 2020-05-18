@@ -51,18 +51,24 @@ export default {
           ownership: "borrowed"
         }
       ],
-      filters: ["bought", "borrowed"]
+      filters: ["bought", "borrowed"],
+      holding: ["bought"],
+      searchInput: ""
     };
   },
-  searchInput: "",
+
   computed: {
     filteredBooks() {
       return _.filter(this.books, ["ownership", this.holding]);
     },
+
     searchedBooks() {
       const searchFilter = book => {
-        return book.title.toLowerCase().match(this.searchInput.toLowerCase());
+        let bookSearch = book.title
+          .toLowerCase()
+          .match(this.searchInput.toLowerCase());
       };
+
       return _.filter(this.books, searchFilter);
     }
   },
@@ -81,10 +87,6 @@ export default {
       });
     }
   }
-};
-
-const searchFilter = book => {
-  return book.title.toLowerCase().match(this.searchInput.toLowerCase());
 };
 </script>
 
